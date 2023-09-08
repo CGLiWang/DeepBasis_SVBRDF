@@ -14,32 +14,41 @@ Our pretrained models can be downloaded from [here](https://www.baidu.com). Down
 - Train mode
 ```Python
 python train.py
-  --name DeepBasisTraining   # ss
-  --save_root ./output # output folder
-  --train_data_root /home/xiaojiu/code/trainBlended # fold
-  --test_data_root /home/sda/xiaojiu/dataset/MixtureDataset
-  --use_tb_logger
-  --fovZ 4
+  --name DeepBasisTraining   # experiment name.
+  --save_root ./output # output folder.
+  --train_data_root ./dataset/train # training data folder.
+  --test_data_root ./dataset/test # test data folder during training.
+  --use_tb_logger # whehter to use tensorboard logger.
+  --fovZ 4 # Acording to FOV, compute the z-coordinate.
+  --total_iter 400000
+  --print_freq 100
+  --save_freq 100000
+  --test_freq 100000
 ```
 
 - Test mode (synthetic data as input for comparison)
 ```Python
 python test.py
-  --name ForOpenSourceData
-  --save_root ./output
-  --test_data_root /home/sda/xiaojiu/dataset/ForOpenSourceData
-  --loadpath_network_g /home/xiaojiu/code/DeepBasis/pretrained/net_g.pth
-  --loadpath_network_l /home/xiaojiu/code/DeepBasis/pretrained/net_l.pth
-  --fovZ 2.414
+  --name DeepBasisTest # experiment name.
+  --save_root ./output # output folder.
+  --test_data_root ./source/test # test svbrdf data folder
+  --loadpath_network_g ./pretrain/net_g_2.414.pth
+  --loadpath_network_l ./pretrain/net_l_2.414.pth
+  --fovZ 2.414 # Acording to FOV, compute the z-coordinate.
 ```
 - Real mode (real-captured images as input)
 ```Python
 python real.py
-  --name debug
-  --save_root ./output
-  --real_data_root /home/xiaojiu/code/DeepBasis/real
-  --loadpath_network_g /home/sda/xiaojiu/experiments/NewRender_z_4/models/net_g_400000.pth
-  --loadpath_network_l /home/sda/xiaojiu/experiments/NewRender_z_4/models/net_m_400000.pth
+  --name DeepBasisRealCapture # experiment name.
+  --save_root ./output # output folder.
+  --real_data_root ./source/real # folder for images
+  --loadpath_network_g ./pretrain/net_g_4.pth
+  --loadpath_network_l ./pretrain/net_l_4.pth
   --fovZ 4
+```
+Note that each pretrained model corresponds to a fixed FOV (Field of View), and during testing, it's essential to maintain the alignment between the captured image's FOV and the model. Specifically, when the captured image undergoes cropping before input (e.g., checkboard capture), it should ensure the correspondence of the actual FOV after cropping.
+# Citation
+If you use our code or pretrained models, please cite as following:
+```
 
 ```
