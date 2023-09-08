@@ -23,7 +23,7 @@ def parse_options():
     parser.add_argument('--real_data_root',type=str,required=True,help="root path for data.")
     parser.add_argument('--loadpath_network_g',type=str,required=True)
     parser.add_argument('--loadpath_network_l',type=str,required=True)
-    parser.add_argument('--fovZ',type=int,default=2.414)
+    parser.add_argument('--fovZ',type=float,default=2.414)
     
     
     args = parser.parse_args()
