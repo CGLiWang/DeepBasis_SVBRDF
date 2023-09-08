@@ -4,7 +4,7 @@ This is the source code of research paper "DeepBasis: Hand-Held Single-Image SVB
 ![Alt](Teaser2.jpg)
 
 # Pretrained models
-Our pretrained models can be downloaded from [here](https://www.baidu.com). Download them and extract them into ```./model/ ```
+Our pretrained models can be downloaded from [here](https://drive.google.com/drive/folders/1t7nnzP2htXwPQVajYdHqlv-MyN_zYPBb?usp=drive_link). Download them and extract them into ```./model/ ```
 
 # Dependencies
 - Python (with opencv-python, numpy; Python tested on 3.7)
