@@ -11,46 +11,6 @@ import glob
 import cv2
 from PIL import ImageFont, ImageDraw, Image
 
-def finit_difference_uv(img, padding=False, channel='chw'):
-    '''
-    按行列计算图像的有限差分，当不指定是否填充时会将得到的梯度裁剪一行 
-    img 要进行差分的图像 pytorch tensor
-    padding 是否填充
-    '''
-    if channel == 'hwc':
-        img = img.permute(2,0,1).contiguous()
-    if padding:
-        img = torch.cat([img,img[:,-1:, :]], axis=1)
-        img = torch.cat([img,img[:,:, -1:]], axis=2)
-    dif_u = img[:,:-1,1:]-img[:,:-1,:-1]
-    dif_v = img[:,1:,:-1]-img[:,:-1,:-1]
-    return dif_u, dif_v
-
-def create_gif(imagename_list, gif_name, duration=1):
-    """生成gif动图,
-    imagename_list:图片名字列表；
-    git_name生成的gif
-    duration间隔时间单位秒。
-    """
-    frames = []
-    size = Image.open(imagename_list[0]).size  # 获取第一张图的size,后面的图都resize到该size
-
-	# 制作图片序列
-    for imagename in imagename_list:
-        image = Image.open(imagename)
-        image = image.resize(size, Image.ANTIALIAS)
-        frames.append(image)
-
-    # 生成gif,frames是图片列表，duration是间隔时间
-    imageio.mimsave(gif_name, frames, 'GIF', duration=duration)
-    print("gif图制作完成")
-
-
-
-# # gif生成
-# filename_list = glob.glob(r'*.jpg')
-
-# create_gif(filename_list, "test.gif")
 def color_map(imgs):
     
     return cm.jet(imgs)[:,:,:3]
