@@ -50,5 +50,20 @@ Note that each pretrained model corresponds to a fixed FOV (Field of View), and 
 # Citation
 If you use our code or pretrained models, please cite as following:
 ```
-
+@inproceedings{10.1145/3610548.3618239,
+                        author = {Wang, Li and Zhang, Lianghao and Gao, Fangzhou and Zhang, Jiawan},
+                        title = {DeepBasis: Hand-Held Single-Image SVBRDF Capture via Two-Level Basis Material Model},
+                        year = {2023},
+                        isbn = {9798400703157},
+                        publisher = {Association for Computing Machinery},
+                        address = {New York, NY, USA},
+                        url = {https://doi.org/10.1145/3610548.3618239},
+                        doi = {10.1145/3610548.3618239},
+                        booktitle = {SIGGRAPH Asia 2023 Conference Papers},
+                        articleno = {85},
+                        numpages = {11},
+                        keywords = {Material Reflectance Modeling, SVBRDF, Basis Maiterials, Deep Learning, Rendering},
+                        location = {, Sydney, NSW, Australia, },
+                        series = {SA '23}
+                        }
 ```
