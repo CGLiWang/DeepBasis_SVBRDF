@@ -10,7 +10,7 @@ import torch
 import os
 
 from torch.functional import norm
-from DeepLearningFrameWork.utils import img2tensor
+from utils import img2tensor
 
 from torch._C import device
 lightDistance = 2.14
